@@ -7,7 +7,6 @@ var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
     attribution: '<a href="https://www.google.com/maps" target=_blank> Google Sattellite Map</a>' }).addTo(map);
 
 // Adding the geoJason file and styling it.
-
 var myStyle = {
 
     fillColor: "#2c7fb8",
@@ -24,6 +23,7 @@ var geojason = L.geoJSON(alderdstricts, {
     
 }).addTo(map);
 
+// Function to bind popup to the geoJason data.
 function districtdata(feature, layer){
     layer.bindPopup("<span class='headings'>District: </span>" + feature.properties.ALD_DIST + "<br>" + 
     "<span class='headings'>Representative: </span>" + feature.properties.Representa + "<br>"
@@ -33,8 +33,11 @@ function districtdata(feature, layer){
 
 };
 
+
+
+// Addint a Title to the map.
 var title = L.control({position: 'topright'});
-title.onAdd = function (map) {
+title.onAdd = function () {
     var div = L.DomUtil.create('div', 'title');
     div.innerHTML = ' <spam class ="maptitle"> Alder Districts - City of Madison </spam> ';
     return div;
