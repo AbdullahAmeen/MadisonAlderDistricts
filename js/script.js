@@ -30,6 +30,19 @@ function districtdata(feature, layer){
     + "<span class='headings'>Contact Representative: </span>" + feature.properties.ContactRep + "<br>"
      + "<span class='headings'>District Population: </span>" + feature.properties.DistrictPo 
      + "<span class='headings'></span>" + feature.properties.Image)
+    // Adding highlight on hover.
+     layer.on('mouseover', function(e) {
+        e.target.setStyle({
+            fillColor:"#9debe8",
+            fillOpacity: 0.45
+        });
+    });
+    layer.on('mouseout', function(e) {
+        e.target.setStyle({
+            fillColor:"#2c7fb8",
+            fillOpacity: 0.55
+        });
+    });
 
 };
 
