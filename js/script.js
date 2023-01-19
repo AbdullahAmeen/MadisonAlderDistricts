@@ -1,4 +1,4 @@
-var map = L.map('map').setView([43.0982, -89.3811], 12);
+var map = L.map('map').setView([43.0982, -89.3811], 11);
 
 var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
     minZoom: 1,
