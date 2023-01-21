@@ -27,8 +27,8 @@ var geojason = L.geoJSON(alderdstricts, {
 function districtdata(feature, layer){
     layer.bindPopup("<span class='headings'>District: </span>" + feature.properties.ALD_DIST + "<br>" + 
     "<span class='headings'>Representative: </span>" + feature.properties.Representa + "<br>"
-    + "<span class='headings'>Contact Representative: </span>" + feature.properties.ContactRep + "<br>"
-     + "<span class='headings'>District Population: </span>" + feature.properties.DistrictPo 
+    + "<span class='headings'>Contact: </span>" + feature.properties.ContactRep + "<br>"
+     + "<span class='headings'>Dist. Population: </span>" + feature.properties.DistrictPo 
      + "<span class='headings'></span>" + feature.properties.Image)
     // Adding highlight on hover.
      layer.on('mouseover', function(e) {
