@@ -16,7 +16,7 @@ var myStyle = {
     fillOpacity: 0.55
 };
 
-var geojason = L.geoJSON(alderdstricts, {
+var geojason = L.geoJSON(alderdstricts1, {
     style:myStyle,
     onEachFeature:districtdata,
     
@@ -25,9 +25,10 @@ var geojason = L.geoJSON(alderdstricts, {
 
 // Function to bind popup to the geoJason data.
 function districtdata(feature, layer){
-    layer.bindPopup("<span class='headings'>District: </span>" + feature.properties.ALD_DIST + "<br>" + 
-    "<span class='headings'>Representative: </span>" + feature.properties.Representa + "<br>"
-    + "<span class='headings'>Contact: </span>" + feature.properties.ContactRep + "<br>"
+    layer.bindPopup("<h3 class = 'heading'>" + "District: " + feature.properties.ALD_DIST + "</h3>" + 
+    "<span class='headings'>Alder : </span>" + feature.properties.Representa + "<br>"
+    + "<span class='headings'>Phone: </span>" + feature.properties.ContactRep + "<br>"
+    + "<span class='headings'>Email: </span>" + feature.properties.Email + "<br>"
      + "<span class='headings'>Dist. Population: </span>" + feature.properties.DistrictPo 
      + "<span class='headings'></span>" + feature.properties.Image)
     // Adding highlight on hover.
