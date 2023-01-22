@@ -29,8 +29,9 @@ function districtdata(feature, layer){
     "<span class='headings'>Alder : </span>" + feature.properties.Representa + "<br>"
     + "<span class='headings'>Phone: </span>" + feature.properties.ContactRep + "<br>"
     + "<span class='headings'>Email: </span>" + feature.properties.Email + "<br>"
-     + "<span class='headings'>Dist. Population: </span>" + feature.properties.DistrictPo 
-     + "<span class='headings'></span>" + feature.properties.Image)
+     + "<span class='headings'>District Area: </span>" + feature.properties.DistrictPo.toFixed(0)
+     + "<span class='headings'></span>" + feature.properties.Image 
+     )
     // Adding highlight on hover.
      layer.on('mouseover', function(e) {
         e.target.setStyle({
@@ -52,8 +53,8 @@ function districtdata(feature, layer){
 // Addint a Title to the map.
 var title = L.control({position: 'topright'});
 title.onAdd = function () {
-    var div = L.DomUtil.create('div', 'title');
-    div.innerHTML = ' <spam class ="maptitle"> Alder Districts - City of Madison </spam> ';
+    var div = L.DomUtil.create('div', 'Title');
+    div.innerHTML = ' <div> Alder Districts - City of Madison </div> ';
     return div;
 };
 title.addTo(map);
