@@ -5,7 +5,7 @@ var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
     maxZoom: 20,
     subdomains:['mt0','mt1','mt2','mt3'],
     attribution: '<a href="https://www.google.com/maps" target=_blank> Google Sattellite Map</a>' }).addTo(map);
-
+  
 // Adding the geoJason file and styling it.
 var myStyle = {
 
@@ -29,7 +29,7 @@ function districtdata(feature, layer){
     "<span class='headings'>Alder : </span>" + feature.properties.Representa + "<br>"
     + "<span class='headings'>Phone: </span>" + feature.properties.ContactRep + "<br>"
     + "<span class='headings'>Email: </span>" + feature.properties.Email + "<br>"
-     + "<span class='headings'>District Area: </span>" + feature.properties.DistrictPo.toFixed(0)
+     + "<span class='headings'>District Area: </span>" + feature.properties.DistrictPo.toFixed(0)+ "  Acre"
      + "<span class='headings'></span>" + feature.properties.Image 
      )
     // Adding highlight on hover.
@@ -58,3 +58,18 @@ title.onAdd = function () {
     return div;
 };
 title.addTo(map);
+
+var geocoder = L.Control.geocoder({
+  defaultMarkGeocode: false
+})
+  .on('markgeocode', function(e) {
+    var bbox = e.geocode.bbox;
+    var poly = L.polygon([
+      bbox.getSouthEast(),
+      bbox.getNorthEast(),
+      bbox.getNorthWest(),
+      bbox.getSouthWest()
+    ]).addTo(map);
+    map.fitBounds(poly.getBounds());
+  })
+  .addTo(map);
