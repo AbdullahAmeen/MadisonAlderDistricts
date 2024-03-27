@@ -50,7 +50,7 @@ function districtdata(feature, layer){
 
 
 
-// Addint a Title to the map.
+// Addint a Title to the map. 
 var title = L.control({position: 'topright'});
 title.onAdd = function () {
     var div = L.DomUtil.create('div', 'Title');
@@ -59,6 +59,7 @@ title.onAdd = function () {
 };
 title.addTo(map);
 
+//Adding Search Box to the Map
 var geocoder = L.Control.geocoder({
   defaultMarkGeocode: false
 })
